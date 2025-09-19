@@ -1,0 +1,222 @@
+  {
+    "groupedCard": {
+      "cardGroupMap": {
+        "REGULAR": {
+          "cards": [
+            {
+              "card": {
+                "card": {
+                  "@type": "type.googleapis.com/swiggy.presentation.food.v2.MenuVegFilterAndBadge",
+                  "badges": {},
+                  "vegOnlyDetails": {
+                    "imageId": "AutoVegOnly_qkjowj",
+                    "title": "Showing only vegetarian options.",
+                    "description": "Tap on the VEG ONLY button to turn off the setting"
+                  },
+                  "offersFilter": {
+                    "attributes": {
+                      "displayText": "15% OFF"
+                    }
+                  },
+                  "topRatedFilter": {
+                    "attributes": {
+                      "displayText": "Ratings 4.0+"
+                    }
+                  },
+                  "kidsCategoryFilter": {
+                    "attributes": {
+                      "displayText": "Kids Favourites",
+                      "tooltip": {
+                        "enabled": true,
+                        "displayText": "Kids Favourites Filter applied. Remove this filter to see the full Menu."
+                      }
+                    }
+                  },
+                  "vegFilter": {
+                    "attributes": {
+                      "displayText": "VEG"
+                    }
+                  },
+                  "nonvegFilter": {
+                    "attributes": {
+                      "displayText": "NONVEG"
+                    }
+                  }
+                },
+                "relevance": {
+                  "type": "RELEVANCE_TYPE_ON_MENU_FILTER_TOGGLED",
+                  "sectionId": "MENU_FILTER_TOGGLE"
+                }
+              }
+            },
+            {
+              "card": {
+                "card": {
+                  "@type": "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory",
+                  "title": "Croissants & Danishes",
+                  "id": 1,
+                  "itemCards": [
+                    {
+                      "card": {
+                        "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                        "info": {
+                          "id": "132449167",
+                          "name": "Pain Au Chocolat [1 Piece]",
+                          "category": "Croissants & Danishes",
+                          "description": "Classic French pastry made with chocolate folded between flaky buttery laminated dough. Allergens - Wheat, Dairy, Soy",
+                          "imageId": "FOOD_CATALOG/IMAGES/CMS/2025/2/6/85022445-3789-4e1e-9616-68f243f6ae66_d357c0b1-dfe1-44c9-b680-62ff21a859d4.jpg",
+                          "inStock": 1,
+                          "isVeg": 1,
+                          "price": 11500,
+                          "variants": {},
+                          "variantsV2": {},
+                         
+                          "itemAttribute": {
+                            "vegClassifier": "VEG"
+                          },
+                          "parentId": "826362"
+                        },
+                        "analytics": {},
+                        "hideRestaurantDetails": true
+                      }
+                    },
+                     {
+                      "card": {
+                        "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                        "info": {
+                          "id": "132449168",
+                          "name": "Cookie[1 Piece]",
+                          "category": "Croissants & Danishes",
+                          "description": "Classic French pastry made with chocolate folded between flaky buttery laminated dough. Allergens - Wheat, Dairy, Soy",
+                          "imageId": "FOOD_CATALOG/IMAGES/CMS/2025/2/6/85022445-3789-4e1e-9616-68f243f6ae66_d357c0b1-dfe1-44c9-b680-62ff21a859d4.jpg",
+                          "inStock": 1,
+                          "isVeg": 1,
+                          "price": 11500,
+                          "variants": {},
+                          "variantsV2": {},
+                         
+                          "itemAttribute": {
+                            "vegClassifier": "VEG"
+                          },
+                          "parentId": "826362"
+                        },
+                        "analytics": {},
+                        "hideRestaurantDetails": true
+                      }
+                    },
+                     {
+                      "card": {
+                        "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                        "info": {
+                          "id": "132449169",
+                          "name": "Brownie",
+                          "category": "Croissants & Danishes",
+                          "description": "Classic French pastry made with chocolate folded between flaky buttery laminated dough. Allergens - Wheat, Dairy, Soy",
+                          "imageId": "FOOD_CATALOG/IMAGES/CMS/2025/2/6/85022445-3789-4e1e-9616-68f243f6ae66_d357c0b1-dfe1-44c9-b680-62ff21a859d4.jpg",
+                          "inStock": 1,
+                          "isVeg": 1,
+                          "price": 11500,
+                          "variants": {},
+                          "variantsV2": {},
+                         
+                          "itemAttribute": {
+                            "vegClassifier": "VEG"
+                          },
+                          "parentId": "826362"
+                        },
+                        "analytics": {},
+                        "hideRestaurantDetails": true
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+              {
+              "card": {
+                "card": {
+                  "@type": "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory",
+                  "title": "Cake",
+                   "id": 2,
+                  "itemCards": [
+                    {
+                      "card": {
+                        "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                        "info": {
+                          "id": "13244912",
+                          "name": "Blueberry Cheese Cake",
+                          "category": "Cake",
+                          "description": "Classic French pastry made with chocolate folded between flaky buttery laminated dough. Allergens - Wheat, Dairy, Soy",
+                          "imageId": "FOOD_CATALOG/IMAGES/CMS/2025/2/6/85022445-3789-4e1e-9616-68f243f6ae66_d357c0b1-dfe1-44c9-b680-62ff21a859d4.jpg",
+                          "inStock": 1,
+                          "isVeg": 1,
+                          "price": 11500,
+                          "variants": {},
+                          "variantsV2": {},
+                         
+                          "itemAttribute": {
+                            "vegClassifier": "VEG"
+                          },
+                          "parentId": "826362"
+                        },
+                        "analytics": {},
+                        "hideRestaurantDetails": true
+                      }
+                    },
+                     {
+                      "card": {
+                        "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                        "info": {
+                          "id": "13244913",
+                          "name": "Red Velvet cake",
+                          "category": "Cake",
+                          "description": "Classic French pastry made with chocolate folded between flaky buttery laminated dough. Allergens - Wheat, Dairy, Soy",
+                          "imageId": "FOOD_CATALOG/IMAGES/CMS/2025/2/6/85022445-3789-4e1e-9616-68f243f6ae66_d357c0b1-dfe1-44c9-b680-62ff21a859d4.jpg",
+                          "inStock": 1,
+                          "isVeg": 1,
+                          "price": 11500,
+                          "variants": {},
+                          "variantsV2": {},
+                         
+                          "itemAttribute": {
+                            "vegClassifier": "VEG"
+                          },
+                          "parentId": "826362"
+                        },
+                        "analytics": {},
+                        "hideRestaurantDetails": true
+                      }
+                    },
+                     {
+                      "card": {
+                        "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
+                        "info": {
+                          "id": "132449169",
+                          "name": "Chocolate Truffle",
+                          "category": "Cake",
+                          "description": "Classic French pastry made with chocolate folded between flaky buttery laminated dough. Allergens - Wheat, Dairy, Soy",
+                          "imageId": "FOOD_CATALOG/IMAGES/CMS/2025/2/6/85022445-3789-4e1e-9616-68f243f6ae66_d357c0b1-dfe1-44c9-b680-62ff21a859d4.jpg",
+                          "inStock": 1,
+                          "isVeg": 1,
+                          "price": 11500,
+                          "variants": {},
+                          "variantsV2": {},
+                         
+                          "itemAttribute": {
+                            "vegClassifier": "VEG"
+                          },
+                          "parentId": "826362"
+                        },
+                        "analytics": {},
+                        "hideRestaurantDetails": true
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  }

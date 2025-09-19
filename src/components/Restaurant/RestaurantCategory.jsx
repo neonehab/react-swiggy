@@ -1,24 +1,23 @@
 import React, { useState } from "react";
 import MenuItem from "./MenuItem";
 
-const RestaurantCategory = (props) => {
-  const { title, itemCards } = props.category;
-  const [showContent, setshowContent] = useState(false);
+const RestaurantCategory = ({category, showContent, setShowIndex}) => {
+  const { title, itemCards} = category;
 
   const toggleMenuContent = () => {
-    setshowContent(!showContent);
+     setShowIndex()
   };
 
   return (
     <div className="res-category">
       <div className="header" onClick={toggleMenuContent}>
-        <h3>{title}</h3>
+        <h3>{title} ({itemCards.length}) <span>🔽</span></h3>
       </div>
 
       <div>
         {itemCards?.map((item) => {
           const { name } = item.card.info;
-          return showContent && <MenuItem key={name} name={name}></MenuItem>;
+          return showContent && <MenuItem key={name} {...item.card.info}></MenuItem>;
         })}
       </div>
     </div>

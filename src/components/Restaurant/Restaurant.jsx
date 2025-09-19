@@ -1,31 +1,49 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, {RestaurantCardWithBadges} from "./RestaurantCard";
 import "../../css/restaurant.css";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useAllRestaurantApi from "../../data/useRestaurantApis";
 
 const Restaurants = () => {
-  const [btnName, setbtnName] = useState("Show");
+  const [btnName, setbtnName] = useState("Top Rated");
+  const [resData, setResData] = useState([]);
 
-  const resData =
-    useAllRestaurantApi()?.data?.cards[4]?.card?.card?.gridElements
-      ?.infoWithStyle?.restaurants;
+  const apiResponse = useAllRestaurantApi();
+  const ResCardWithBadgesComponent = RestaurantCardWithBadges(RestaurantCard);
+
+  useEffect(() => {
+    const restaurantlist =
+      apiResponse?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants;
+    if (restaurantlist) {
+      setResData(restaurantlist);
+    }
+    console.log(restaurantlist);
+  }, [apiResponse]);
 
   // let resData = restaurants;
   const filter = () => {
-    const filteresResData = resData.filter((res) => {
-      return res.rating > 4;
-    });
+    if (btnName == "Top Rated") {
+      const filteresResData = resData.filter((res) => {
+        return res.info.avgRating > 4.5;
+      });
 
-    setResData(filteresResData);
+      setResData(filteresResData);
+      setbtnName("Show All");
+    } else {
+      const restaurantlist =
+        apiResponse?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants;
+      setResData(restaurantlist);
+      setbtnName("Top Rated");
+    }
   };
   return !resData ? (
     <h2>Loading....</h2>
   ) : (
     <div className="restaurant-list">
       <h2>Restaurants</h2>
-      <button onClick={filter}>Top Rated</button>
-      <button onClick={() => setbtnName("Filtered Data")}>{btnName}</button>
+      <button onClick={filter}>{btnName}</button>
 
       <div className="cards-container">
         {resData.map((res) => {
@@ -36,7 +54,10 @@ const Restaurants = () => {
               key={resInfo.id}
               to={`/restaurant-menu/${resInfo.id}`}
             >
-              <RestaurantCard resDetails={resInfo}></RestaurantCard>
+              {resInfo.badges?.imageBadges ? <ResCardWithBadgesComponent resDetails={resInfo}></ResCardWithBadgesComponent>
+                : <RestaurantCard resDetails={resInfo}></RestaurantCard>
+
+              }
             </Link>
           );
         })}

@@ -33,3 +33,21 @@
 .res-category {
   padding: 15px;
 }
+
+.badgeImage {
+  position: absolute;
+  background: #ffffff;
+  height: 50px;
+  margin-left: 20px;
+  object-fit: contain;
+}
+
+.menu-flex {
+  display: flex;
+  /* justify-content: space-between; */
+}
+
+.menu-flex img {
+    object-fit: contain;
+
+}
