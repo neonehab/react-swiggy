@@ -9,6 +9,34 @@
 .logo img {
   height: 40px;
 }
+.left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  min-width: 0;
+}
+.location {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 280px;
+  font-size: 14px;
+  color: #333;
+}
+.locationIcon {
+  flex-shrink: 0;
+}
+.locationText {
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 2px solid #fc8019;
+}
+.locationLoading {
+  color: #888;
+  font-style: italic;
+}
 .navbar ul {
   list-style: none;
   display: flex;
