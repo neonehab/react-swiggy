@@ -1,12 +1,15 @@
 import Header from "./components/header/Header";
 import "./App.css";
 import { Outlet } from "react-router-dom";
+import useCurrentLocation from "./data/useCurrentLocation";
 
 function App() {
+  const location = useCurrentLocation();
+
   return (
     <>
-      <Header></Header>
-      <Outlet></Outlet>
+      <Header location={location}></Header>
+      <Outlet context={{ location }}></Outlet>
     </>
   );
 }

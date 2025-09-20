@@ -12,18 +12,19 @@ const RestaurantCard = ({ resDetails }) => {
     locality,
   } = resDetails;
   return (
-    <>
-      <div className="res-card">
-        <img src={`${IMAGE_CDN}/${cloudinaryImageId}`} alt="" />
-        <h3>{name}</h3>
-        <p>{cuisines.join(", ")}</p>
-        <p>{costForTwo}</p>
-        <p>{avgRating}</p>
-        <p>
-          {locality}, {areaName}
-        </p>
-      </div>
-    </>
+    <div className="res-card">
+      <img
+        src={resDetails.imageUrl || `${IMAGE_CDN}${cloudinaryImageId}`}
+        alt={name}
+      />
+      <h3>{name}</h3>
+      <p>{cuisines?.join(", ")}</p>
+      <p>{costForTwo}</p>
+      <p>{avgRating}</p>
+      <p>
+        {locality}, {areaName}
+      </p>
+    </div>
   );
 };
 

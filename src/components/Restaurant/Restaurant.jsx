@@ -1,67 +1,65 @@
 import RestaurantCard, {RestaurantCardWithBadges} from "./RestaurantCard";
 import "../../css/restaurant.css";
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useOutletContext } from "react-router-dom";
 import useAllRestaurantApi from "../../data/useRestaurantApis";
 
 const Restaurants = () => {
-  const [btnName, setbtnName] = useState("Top Rated");
-  const [resData, setResData] = useState([]);
-
-  const apiResponse = useAllRestaurantApi();
+  const { location } = useOutletContext();
+  const { restaurants, loading, error } = useAllRestaurantApi(location);
+  const [showTopRated, setShowTopRated] = useState(false);
   const ResCardWithBadgesComponent = RestaurantCardWithBadges(RestaurantCard);
+  const visibleRestaurants = showTopRated
+    ? restaurants.filter((restaurant) => Number(restaurant.info.avgRating) > 4.5)
+    : restaurants;
 
-  useEffect(() => {
-    const restaurantlist =
-      apiResponse?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants;
-    if (restaurantlist) {
-      setResData(restaurantlist);
-    }
-    console.log(restaurantlist);
-  }, [apiResponse]);
-
-  // let resData = restaurants;
-  const filter = () => {
-    if (btnName == "Top Rated") {
-      const filteresResData = resData.filter((res) => {
-        return res.info.avgRating > 4.5;
-      });
-
-      setResData(filteresResData);
-      setbtnName("Show All");
-    } else {
-      const restaurantlist =
-        apiResponse?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants;
-      setResData(restaurantlist);
-      setbtnName("Top Rated");
-    }
-  };
-  return !resData ? (
-    <h2>Loading....</h2>
-  ) : (
+  return (
     <div className="restaurant-list">
-      <h2>Restaurants</h2>
-      <button onClick={filter}>{btnName}</button>
+      <h2>Restaurants near {location.label}</h2>
+      {location.error && (
+        <p className="restaurant-status" role="status">
+          Could not access your location. Showing results for the default
+          location instead.
+        </p>
+      )}
+      {error && (
+        <p className="restaurant-status" role="alert">
+          {error} Showing sample restaurants instead.
+        </p>
+      )}
+      <button
+        onClick={() => setShowTopRated((current) => !current)}
+        disabled={loading}
+      >
+        {showTopRated ? "Show All" : "Top Rated"}
+      </button>
 
-      <div className="cards-container">
-        {resData.map((res) => {
-          const resInfo = res.info;
-          return (
-            <Link
-              className="res-links"
-              key={resInfo.id}
-              to={`/restaurant-menu/${resInfo.id}`}
-            >
-              {resInfo.badges?.imageBadges ? <ResCardWithBadgesComponent resDetails={resInfo}></ResCardWithBadgesComponent>
-                : <RestaurantCard resDetails={resInfo}></RestaurantCard>
-
-              }
-            </Link>
-          );
-        })}
-      </div>
+      {loading ? (
+        <p className="restaurant-status" role="status">
+          Finding restaurants near you...
+        </p>
+      ) : visibleRestaurants.length === 0 ? (
+        <p className="restaurant-status">No restaurants match this filter.</p>
+      ) : (
+        <div className="cards-container">
+          {visibleRestaurants.map((restaurant) => {
+            const resInfo = restaurant.info;
+            return (
+              <Link
+                className="res-links"
+                key={resInfo.id}
+                to={`/restaurant-menu/${resInfo.id}`}
+              >
+                {resInfo.badges?.imageBadges?.length ? (
+                  <ResCardWithBadgesComponent resDetails={resInfo} />
+                ) : (
+                  <RestaurantCard resDetails={resInfo} />
+                )}
+              </Link>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 };

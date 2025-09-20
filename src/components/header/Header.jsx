@@ -1,9 +1,8 @@
 import { Link, NavLink } from "react-router-dom";
 import styles from "../../css/header.module.css";
-import useCurrentLocation from "../../data/useCurrentLocation";
 
-const Header = () => {
-  const { label, loading, error } = useCurrentLocation();
+const Header = ({ location }) => {
+  const { label, loading, error } = location;
 
   return (
     <header className={styles.header}>
