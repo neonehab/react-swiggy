@@ -1,26 +1,48 @@
-import React, { useState } from "react";
 import MenuItem from "./MenuItem";
 
-const RestaurantCategory = ({category, showContent, setShowIndex}) => {
-  const { title, itemCards} = category;
-
-  const toggleMenuContent = () => {
-     setShowIndex()
-  };
+const RestaurantCategory = ({
+  category,
+  showContent,
+  setShowIndex,
+  cart,
+  onAdd,
+  onRemove,
+}) => {
+  const { title, itemCards = [] } = category;
 
   return (
-    <div className="res-category">
-      <div className="header" onClick={toggleMenuContent}>
-        <h3>{title} ({itemCards.length}) <span>🔽</span></h3>
-      </div>
+    <section className="menu-category">
+      <button
+        className="menu-category-toggle"
+        type="button"
+        onClick={setShowIndex}
+        aria-expanded={showContent}
+      >
+        <span>
+          {title} <span className="menu-category-count">({itemCards.length})</span>
+        </span>
+        <span className="menu-category-chevron" aria-hidden="true">
+          {showContent ? "−" : "+"}
+        </span>
+      </button>
 
-      <div>
-        {itemCards?.map((item) => {
-          const { name } = item.card.info;
-          return showContent && <MenuItem key={name} {...item.card.info}></MenuItem>;
-        })}
-      </div>
-    </div>
+      {showContent && (
+        <div className="menu-category-items">
+          {itemCards.map(({ card }) => {
+            const item = card.info;
+            return (
+              <MenuItem
+                key={item.id}
+                item={item}
+                quantity={cart[item.id] || 0}
+                onAdd={() => onAdd(item)}
+                onRemove={() => onRemove(item)}
+              />
+            );
+          })}
+        </div>
+      )}
+    </section>
   );
 };
 
